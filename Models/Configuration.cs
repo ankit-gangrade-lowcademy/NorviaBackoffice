@@ -1,0 +1,5 @@
+namespace NorviaBackoffice.Models;
+public sealed class EmailSettings { public const string SectionName = "EmailSettings"; public string SmtpHost { get; set; } = "smtp.gmail.com"; public int SmtpPort { get; set; } = 587; public string Username { get; set; } = ""; public string AppPassword { get; set; } = ""; public string FromEmail { get; set; } = ""; public string FromName { get; set; } = "Norvia Backoffice"; }
+public sealed class ApplicationSettings { public const string SectionName = "ApplicationSettings"; public string BaseUrl { get; set; } = ""; public string PasswordResetStorePath { get; set; } = "App_Data/password-reset-tokens.dat"; }
+public sealed class LockoutSettings { public const string SectionName = "LockoutSettings"; public int MaxAttempts { get; set; } = 5; public int DurationMinutes { get; set; } = 15; }
+public sealed class ProvisioningSettings { public const string SectionName="ProvisioningSettings"; public string Endpoint { get; set; }=""; public string Key { get; set; }=""; public string Secret { get; set; }=""; public int TimeoutSeconds { get; set; }=20; }

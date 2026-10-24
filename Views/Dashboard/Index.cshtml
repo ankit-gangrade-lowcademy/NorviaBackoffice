@@ -1,0 +1,5 @@
+@using System.Security.Claims
+@{ ViewData["Title"]="Dashboard"; }
+@{var role=User.FindFirstValue(ClaimTypes.Role);var canManage=role is "Super Admin" or "Admin" or "Backoffice Admin";}
+@if(!canManage){<div class="data-card restricted"><div class="mark">NB</div><h1>Access restricted</h1><p>Your account can sign in but has no management permissions. Contact a Super Admin if you need access.</p></div>}
+else{<div class="page-head"><div><div class="eyebrow">University of Norvia · SaaS Operations</div><h1>Welcome, @User.Identity?.Name</h1><p>Use the management areas below to operate the Norvia SaaS ecosystem.</p></div><span class="badge-status">@role</span></div><div class="stats"><a class="stat" asp-controller="Tenants" asp-action="Index"><b>Tenants</b><span>Customer organizations</span></a><a class="stat" asp-controller="TenantAdmins" asp-action="Index"><b>Tenant Admins</b><span>Customer access and provisioning</span></a>@if(role=="Super Admin"){<a class="stat" asp-controller="Products" asp-action="Index"><b>Products</b><span>Catalogue and role mappings</span></a>}</div>}

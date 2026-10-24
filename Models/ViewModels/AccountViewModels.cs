@@ -1,0 +1,6 @@
+using System.ComponentModel.DataAnnotations;
+namespace NorviaBackoffice.Models.ViewModels;
+public sealed class LoginViewModel { [Required, EmailAddress, StringLength(320)] public string Email { get; set; } = ""; [Required, DataType(DataType.Password)] public string Password { get; set; } = ""; [Display(Name = "Remember me")] public bool RememberMe { get; set; } public string? ReturnUrl { get; set; } }
+public sealed class ForgotPasswordViewModel { [Required, EmailAddress, StringLength(320)] public string Email { get; set; } = ""; }
+public sealed class ResetPasswordViewModel { [Required] public string Token { get; set; } = ""; [Required, DataType(DataType.Password), MinLength(12)] public string NewPassword { get; set; } = ""; [Required, DataType(DataType.Password), Compare(nameof(NewPassword))] public string ConfirmPassword { get; set; } = ""; }
+public sealed class ChangePasswordViewModel { [Required, DataType(DataType.Password)] public string CurrentPassword { get; set; } = ""; [Required, DataType(DataType.Password), MinLength(12)] public string NewPassword { get; set; } = ""; [Required, DataType(DataType.Password), Compare(nameof(NewPassword))] public string ConfirmPassword { get; set; } = ""; }
