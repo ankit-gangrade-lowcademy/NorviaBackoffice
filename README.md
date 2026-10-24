@@ -324,6 +324,6 @@ This repository is intended to demonstrate enterprise application development co
 
 Designed & Developed by Ankit Gangrade
 
-Enterprise Software Architect | OutSystems Champion | Founder, Lowcademy
+Enterprise Software Architect | OutSystems Champion
 
 © 2026 Ankit Gangrade. All Rights Reserved.
